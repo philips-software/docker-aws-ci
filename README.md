@@ -1,4 +1,4 @@
-[![Build Status](https://action-badges.now.sh/philips-software/docker-aws-ci/workflows/build/badge.svg)](https://github.com/philips-software/docker-aws-ci/actions)
+[![Build Status](https://github.com/philips-software/docker-aws-ci/workflows/build/badge.svg)](https://github.com/philips-software/docker-aws-ci/actions)
 [![Slack](https://philips-software-slackin.now.sh/badge.svg)](https://philips-software-slackin.now.sh)
 
 # Docker images
