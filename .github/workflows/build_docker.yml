@@ -3,7 +3,7 @@ on:
     branches:
       - master
 
-name: Build Docker images
+name: build
 
 jobs:
   build:
