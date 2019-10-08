@@ -1,0 +1,22 @@
+on: [push]
+
+name: Build Docker images
+
+jobs:
+  build:
+    name: Build aws ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+        with:
+          submodules: true
+
+      - name: Build Docker Images
+        run: |
+          ./ci/bin/docker_build_and_push.sh 10 aws-ci:latest aws-ci:alpine
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: "${{ secrets.DOCKER_PASSWORD }}"
+          DOCKER_ORGANIZATION: ${{ secrets.DOCKER_ORGANIZATION }}
+          GITHUB_ORGANIZATION: ${{ secrets.GITHUB_ORGANIZATION }}
