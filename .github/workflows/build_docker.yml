@@ -17,7 +17,7 @@ jobs:
 
       - name: Build Docker Images
         run: |
-          ./ci/bin/docker_build_and_push.sh python-alpine aws-ci:latest aws-ci:alpine
+          ./ci/bin/docker_build_and_push.sh python-alpine aws-ci:latest aws-ci:alpine aws-ci:1.0.0
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: "${{ secrets.DOCKER_PASSWORD }}"
