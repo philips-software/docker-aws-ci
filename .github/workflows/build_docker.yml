@@ -1,7 +1,4 @@
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 name: build
 
@@ -11,15 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-        with:
-          submodules: true
+    - uses: actions/checkout@v2
 
-      - name: Build Docker Images
-        run: |
-          ./ci/bin/docker_build_and_push.sh python-alpine aws-ci:latest aws-ci:alpine aws-ci:1.0.0
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: "${{ secrets.DOCKER_PASSWORD }}"
-          DOCKER_ORGANIZATION: ${{ secrets.DOCKER_ORGANIZATION }}
-          GITHUB_ORGANIZATION: ${{ secrets.GITHUB_ORGANIZATION }}
+    - name: Build Docker Images
+      uses: philips-software/docker-ci-scripts@v2.0.1
+      with:
+        dockerfile: python-alpine
+        image-name: aws-ci 
+        tags: latest alpine 1.0.0
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'
+        DOCKER_ORGANIZATION: philipssoftware
+        GITHUB_ORGANIZATION: philips-software

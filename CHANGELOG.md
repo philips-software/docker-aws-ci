@@ -6,6 +6,9 @@ and this project uses the version of main tool as main version number .
 
 ## [Unreleased]
 
+### Changes
+- New docker-ci-scripts
+
 ## 1.0.0
 ### Add
 - Initial version with aws cli 1.16.250 and kubectl 1.16.1
